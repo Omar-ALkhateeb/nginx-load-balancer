@@ -1,0 +1,19 @@
+version: '3'
+services:
+  my.app1:
+    build:  ./express_app
+    ports:
+     - 5000:8080
+    command: ["npm", "start"]
+  my.app2:
+    build:  ./express_app
+    ports:
+     - 5001:8080
+    command: ["npm", "start"]
+  nginx_app:
+    build:  ./nginx-balancer
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - my.app2
