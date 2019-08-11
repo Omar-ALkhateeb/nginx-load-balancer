@@ -14,6 +14,7 @@ app.use(
 // It will render the index.html available in the Project root directory as a Response
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
+    console.log('serving html');
     //__dirname : It will resolve to your project folder.
 });
 
